@@ -1,0 +1,146 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>setNodes</title>
+    <script type="text/javascript">
+        $(function () { getlist(); });
+
+        var wfid = '@ViewBag.wfid';
+        //负责获取当前工作流下面的所有节点数据
+        var grid;
+        function getlist() {
+            grid = $("#list").ligerGrid({
+                columns: [
+                    { display: "编号", name: "wfID" },
+                    { display: "排序号", name: "wfnOrderNo" },
+                    {
+                        display: "节点类型", name: "NodeType", render: function (rowdata, index, value) {
+                            if (rowdata.wfNodeType == "35") {
+                                return "<font color='blue'>" + value + "</font>";
+                            }
+                            return "<font color='green'>" + value + "</font>";
+                        }
+                    },
+                    { display: "标题", name: "wfNodeTitle" },
+                    { display: "审批角色类型", name: "RoleType" },
+                    { display: "当前节点判断方法", name: "Biz" }
+                ]
+                ,
+                url: "/workflow/wfwork/getNodes/" + wfid
+                , usePager: false
+                , toolbar: {
+                    items: [
+                       { text: "新增", click: add, icon: "add" },
+                        { line: true },
+                        { text: "编辑", click: edit, icon: "modify" },
+                        { line: true },
+                        { text: "删除", click: del, icon: "delete" },
+                        { line: true },
+                        { text: "节点分支设置", click: setNodeBranch, icon: "ok" },
+                        { line: true },
+                           { text: "上移一行", click: toup, icon: "up" },
+                        { line: true },
+                           { text: "下移一行", click: todown, icon: "down" }
+                    ]
+                }
+            });
+        }
+
+        function add() {
+            helper.openPanel("新增节点", "/workflow/wfwork/addNode/" + wfid);
+        }
+        function edit() { }
+        function del() {
+            //1.0 获取选择行的id
+            var row = grid.getSelectedRow();
+
+            //2.0 验证是否有选择
+            //3.0 
+            var wfnid = row.wfnID;
+
+            $.ligerDialog.confirm('您确认要删除此数据吗?', function (yes) {
+                if (!yes) {
+                    return;
+                }
+
+                $.post("/workflow/wfwork/del/" + wfnid, null, function (ajaxobj) {
+                    helper.checkStatus(ajaxobj, function () {
+                        //刷新表格即可
+                        grid.reload();
+                    });
+                }, "json");
+
+            });      
+        }
+        //设置当前节点的分支
+        function setNodeBranch() {
+            //1.0 获取选择行的id
+            var row = grid.getSelectedRow();
+
+            //2.0 验证是否有选择
+            //3.0 
+            var wfnid = row.wfnID;
+
+            helper.openPanel("设置节点分支", "/workflow/wfwork/setNodeBranch/" + wfnid,450,700);
+        }
+        //将当前选择节点上移一行
+        function toup() {
+            downup("toup");
+        }
+        //将当前选择节点下移一行
+        function todown() {
+            downup("todown");
+        }
+
+        //type: toup  获取todown
+        function downup(type) {
+            //1.0 获取选择行的id
+            var row = grid.getSelectedRow();
+
+            //2.0 验证是否有选择
+            //3.0 
+            var wfnid = row.wfnID;
+
+            //4.0 利用jquery的post方法将wfnid发送给服务器进行上移处理
+            $.post("/workflow/wfwork/" + type + "/" + wfnid, null, function (ajaxobj) {
+                helper.checkStatus(ajaxobj, function () {
+                    //刷新表格即可
+                    grid.reload();
+                });
+            }, "json");
+        }
+    </script>
+</head>
+<body>
+    <div id="content">
+        <div id="content-header">
+            <div id="breadcrumb">
+                <a href="javascript:void(0)" title="首页"><i class="icon-home"></i>首页</a>
+                <a href="javascript:void(0)" title="系统管理"><i class="icon-road"></i>工作流管理</a>
+                <a class="current" href="javascript:void(0)">工作流节点定义</a>
+            </div>
+        </div>
+        <div style="height: 100%;">
+            <div id="content-body" class="row-fluid">
+                <div class="span22">
+                    <!--列表-->
+                    <div class="widget-box">
+                        <div class="widget-title">
+                            <span class="icon"><i class="icon-th"></i></span>
+                            <h5>工作流节点定义</h5>
+                        </div>
+                        <div id="list" class="widget-content nopadding">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

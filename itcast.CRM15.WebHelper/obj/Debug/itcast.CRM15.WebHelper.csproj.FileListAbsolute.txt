@@ -1,0 +1,16 @@
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\itcast.CRM15.WebHelper.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\itcast.CRM15.WebHelper.pdb
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\Autofac.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\itcast.CRM15.Common.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\itcast.CRM15.IServices.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\itcast.CRM15.Model.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\EntityFramework.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\itcast.CRM15.Common.pdb
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\itcast.CRM15.IServices.pdb
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\itcast.CRM15.Model.pdb
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\Autofac.xml
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\EntityFramework.xml
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\obj\Debug\itcast.CRM15.WebHelper.csprojResolveAssemblyReference.cache
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\obj\Debug\itcast.CRM15.WebHelper.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.WebHelper\obj\Debug\itcast.CRM15.WebHelper.pdb

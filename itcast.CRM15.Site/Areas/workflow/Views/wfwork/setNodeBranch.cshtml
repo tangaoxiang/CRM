@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>setNodeBranch</title>
+    <script type="text/javascript">
+        $(function () {
+            getlist();
+        });
+
+        var wfnid = '@ViewBag.wfnid';
+
+        var grid;
+        function getlist() {
+            grid = $("#list").ligerGrid({
+                columns: [
+                    { display: "编号", name: "wfbID" },
+                    { display: "节点流转标示", name: "wfnToken" },
+                    { display: "下一个节点", name: "wfNodeTitle" }
+                ]
+                , url: "/workflow/wfwork/getNodeBranch/" + wfnid
+                , usePager: false
+                , toolbar: {
+                    items: [
+                        { text: "新增", click: add, icon: "add" },
+                        { line: true },
+                        { text: "编辑", click: edit, icon: "modify" },
+                         { line: true },
+                        { text: "删除", click: del, icon: "delete" }
+                    ]
+                }
+            });
+        }
+
+        function add() {
+            helper.openPanel("新增分支", "/workflow/wfwork/addBranch/" + wfnid, 400, 400);
+        }
+        function edit() { }
+        function del() { }
+    </script>
+</head>
+<body>
+    <div id="content">
+        <div id="content-header">
+            <div id="breadcrumb">
+                <a href="javascript:void(0)" title="首页"><i class="icon-home"></i>首页</a>
+                <a href="javascript:void(0)" title="系统管理"><i class="icon-road"></i>工作流管理</a>
+                <a class="current" href="javascript:void(0)">工作流节点分支</a>
+            </div>
+        </div>
+        <div style="height: 100%;">
+            <div id="content-body" class="row-fluid">
+                <div class="span22">
+                    <!--列表-->
+                    <div class="widget-box">
+                        <div class="widget-title">
+                            <span class="icon"><i class="icon-th"></i></span>
+                            <h5>工作流节点分支列表</h5>
+                        </div>
+                        <div id="list" class="widget-content nopadding">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

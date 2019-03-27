@@ -1,0 +1,665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JKCRMModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="JKCRMEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="sysFunction" EntityType="JKCRMModel.sysFunction" />
+    <EntitySet Name="sysKeyValue" EntityType="JKCRMModel.sysKeyValue" />
+    <EntitySet Name="sysMenus" EntityType="JKCRMModel.sysMenus" />
+    <EntitySet Name="sysOrganStruct" EntityType="JKCRMModel.sysOrganStruct" />
+    <EntitySet Name="sysPermissList" EntityType="JKCRMModel.sysPermissList" />
+    <EntitySet Name="sysRole" EntityType="JKCRMModel.sysRole" />
+    <EntitySet Name="sysUserInfo" EntityType="JKCRMModel.sysUserInfo" />
+    <EntitySet Name="sysUserInfo_Role" EntityType="JKCRMModel.sysUserInfo_Role" />
+    <EntitySet Name="wfProcess" EntityType="JKCRMModel.wfProcess" />
+    <EntitySet Name="wfRequestForm" EntityType="JKCRMModel.wfRequestForm" />
+    <EntitySet Name="wfWork" EntityType="JKCRMModel.wfWork" />
+    <EntitySet Name="wfWorkBranch" EntityType="JKCRMModel.wfWorkBranch" />
+    <EntitySet Name="wfWorkNodes" EntityType="JKCRMModel.wfWorkNodes" />
+    <AssociationSet Name="FK_sysFunction_sysMenus" Association="JKCRMModel.FK_sysFunction_sysMenus">
+      <End Role="sysMenus" EntitySet="sysMenus" />
+      <End Role="sysFunction" EntitySet="sysFunction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysPermissList_sysFunction" Association="JKCRMModel.FK_sysPermissList_sysFunction">
+      <End Role="sysFunction" EntitySet="sysFunction" />
+      <End Role="sysPermissList" EntitySet="sysPermissList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrganStruct_KeyValue" Association="JKCRMModel.FK_OrganStruct_KeyValue">
+      <End Role="sysKeyValue" EntitySet="sysKeyValue" />
+      <End Role="sysOrganStruct" EntitySet="sysOrganStruct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysRole_sysKeyValue" Association="JKCRMModel.FK_sysRole_sysKeyValue">
+      <End Role="sysKeyValue" EntitySet="sysKeyValue" />
+      <End Role="sysRole" EntitySet="sysRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfProcess_sysKeyValue" Association="JKCRMModel.FK_wfProcess_sysKeyValue">
+      <End Role="sysKeyValue" EntitySet="sysKeyValue" />
+      <End Role="wfProcess" EntitySet="wfProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfRequestForm_sysKeyValue" Association="JKCRMModel.FK_wfRequestForm_sysKeyValue">
+      <End Role="sysKeyValue" EntitySet="sysKeyValue" />
+      <End Role="wfRequestForm" EntitySet="wfRequestForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfRequestForm_sysKeyValue1" Association="JKCRMModel.FK_wfRequestForm_sysKeyValue1">
+      <End Role="sysKeyValue" EntitySet="sysKeyValue" />
+      <End Role="wfRequestForm" EntitySet="wfRequestForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfWorkNodes_sysKeyValue" Association="JKCRMModel.FK_wfWorkNodes_sysKeyValue">
+      <End Role="sysKeyValue" EntitySet="sysKeyValue" />
+      <End Role="wfWorkNodes" EntitySet="wfWorkNodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfWorkNodes_sysKeyValue1" Association="JKCRMModel.FK_wfWorkNodes_sysKeyValue1">
+      <End Role="sysKeyValue" EntitySet="sysKeyValue" />
+      <End Role="wfWorkNodes" EntitySet="wfWorkNodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysPermissList_sysMenus" Association="JKCRMModel.FK_sysPermissList_sysMenus">
+      <End Role="sysMenus" EntitySet="sysMenus" />
+      <End Role="sysPermissList" EntitySet="sysPermissList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysRole_sysOrganStruct" Association="JKCRMModel.FK_sysRole_sysOrganStruct">
+      <End Role="sysOrganStruct" EntitySet="sysOrganStruct" />
+      <End Role="sysRole" EntitySet="sysRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysUserInfo_sysOrganStruct" Association="JKCRMModel.FK_sysUserInfo_sysOrganStruct">
+      <End Role="sysOrganStruct" EntitySet="sysOrganStruct" />
+      <End Role="sysUserInfo" EntitySet="sysUserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysUserInfo_sysOrganStruct1" Association="JKCRMModel.FK_sysUserInfo_sysOrganStruct1">
+      <End Role="sysOrganStruct" EntitySet="sysOrganStruct" />
+      <End Role="sysUserInfo" EntitySet="sysUserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysUserInfo_sysOrganStruct2" Association="JKCRMModel.FK_sysUserInfo_sysOrganStruct2">
+      <End Role="sysOrganStruct" EntitySet="sysOrganStruct" />
+      <End Role="sysUserInfo" EntitySet="sysUserInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysPermissList_sysRole" Association="JKCRMModel.FK_sysPermissList_sysRole">
+      <End Role="sysRole" EntitySet="sysRole" />
+      <End Role="sysPermissList" EntitySet="sysPermissList" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysUserInfo_Role_sysRole" Association="JKCRMModel.FK_sysUserInfo_Role_sysRole">
+      <End Role="sysRole" EntitySet="sysRole" />
+      <End Role="sysUserInfo_Role" EntitySet="sysUserInfo_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sysUserInfo_Role_sysUserInfo" Association="JKCRMModel.FK_sysUserInfo_Role_sysUserInfo">
+      <End Role="sysUserInfo" EntitySet="sysUserInfo" />
+      <End Role="sysUserInfo_Role" EntitySet="sysUserInfo_Role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfRequestForm_sysUserInfo" Association="JKCRMModel.FK_wfRequestForm_sysUserInfo">
+      <End Role="sysUserInfo" EntitySet="sysUserInfo" />
+      <End Role="wfRequestForm" EntitySet="wfRequestForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfProcess_wfRequestForm" Association="JKCRMModel.FK_wfProcess_wfRequestForm">
+      <End Role="wfRequestForm" EntitySet="wfRequestForm" />
+      <End Role="wfProcess" EntitySet="wfProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfProcess_wfWorkNodes" Association="JKCRMModel.FK_wfProcess_wfWorkNodes">
+      <End Role="wfWorkNodes" EntitySet="wfWorkNodes" />
+      <End Role="wfProcess" EntitySet="wfProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfRequestForm_wfWork" Association="JKCRMModel.FK_wfRequestForm_wfWork">
+      <End Role="wfWork" EntitySet="wfWork" />
+      <End Role="wfRequestForm" EntitySet="wfRequestForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfWorkNodes_wfWork" Association="JKCRMModel.FK_wfWorkNodes_wfWork">
+      <End Role="wfWork" EntitySet="wfWork" />
+      <End Role="wfWorkNodes" EntitySet="wfWorkNodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfWorkBranch_wfWorkNodes" Association="JKCRMModel.FK_wfWorkBranch_wfWorkNodes">
+      <End Role="wfWorkNodes" EntitySet="wfWorkNodes" />
+      <End Role="wfWorkBranch" EntitySet="wfWorkBranch" />
+    </AssociationSet>
+    <AssociationSet Name="FK_wfWorkBranch_wfWorkNodes1" Association="JKCRMModel.FK_wfWorkBranch_wfWorkNodes1">
+      <End Role="wfWorkNodes" EntitySet="wfWorkNodes" />
+      <End Role="wfWorkBranch" EntitySet="wfWorkBranch" />
+    </AssociationSet>
+    <FunctionImport Name="Usp_GetFunctionsForUser15" ReturnType="Collection(JKCRMModel.Usp_GetFunctionsForUser15_Result)">
+      <Parameter Name="uid" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="sysFunction">
+    <Key>
+      <PropertyRef Name="fID" />
+    </Key>
+    <Property Name="fID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="mID" Type="Int32" Nullable="false" />
+    <Property Name="fName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="fFunction" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="fPicname" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="fStatus" Type="Int32" />
+    <Property Name="fCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="fCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fUpdateID" Type="Int32" />
+    <Property Name="fUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="sysMenus" Relationship="JKCRMModel.FK_sysFunction_sysMenus" FromRole="sysFunction" ToRole="sysMenus" />
+    <NavigationProperty Name="sysPermissList" Relationship="JKCRMModel.FK_sysPermissList_sysFunction" FromRole="sysFunction" ToRole="sysPermissList" />
+  </EntityType>
+  <EntityType Name="sysKeyValue">
+    <Key>
+      <PropertyRef Name="KID" />
+    </Key>
+    <Property Name="KID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentID" Type="Int32" Nullable="false" />
+    <Property Name="KType" Type="Int32" Nullable="false" />
+    <Property Name="KName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Kvalue" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="KRemark" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="sysOrganStruct" Relationship="JKCRMModel.FK_OrganStruct_KeyValue" FromRole="sysKeyValue" ToRole="sysOrganStruct" />
+    <NavigationProperty Name="sysRole" Relationship="JKCRMModel.FK_sysRole_sysKeyValue" FromRole="sysKeyValue" ToRole="sysRole" />
+    <NavigationProperty Name="wfProcess" Relationship="JKCRMModel.FK_wfProcess_sysKeyValue" FromRole="sysKeyValue" ToRole="wfProcess" />
+    <NavigationProperty Name="wfRequestForm" Relationship="JKCRMModel.FK_wfRequestForm_sysKeyValue" FromRole="sysKeyValue" ToRole="wfRequestForm" />
+    <NavigationProperty Name="wfRequestForm1" Relationship="JKCRMModel.FK_wfRequestForm_sysKeyValue1" FromRole="sysKeyValue" ToRole="wfRequestForm" />
+    <NavigationProperty Name="wfWorkNodes" Relationship="JKCRMModel.FK_wfWorkNodes_sysKeyValue" FromRole="sysKeyValue" ToRole="wfWorkNodes" />
+    <NavigationProperty Name="wfWorkNodes1" Relationship="JKCRMModel.FK_wfWorkNodes_sysKeyValue1" FromRole="sysKeyValue" ToRole="wfWorkNodes" />
+  </EntityType>
+  <EntityType Name="sysMenus">
+    <Key>
+      <PropertyRef Name="mID" />
+    </Key>
+    <Property Name="mID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="mParentID" Type="Int32" Nullable="false" />
+    <Property Name="mName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="mUrl" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="mArea" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="mController" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="mAction" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="mSortid" Type="Int32" Nullable="false" />
+    <Property Name="mStatus" Type="Int32" Nullable="false" />
+    <Property Name="mPicname" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="mLevel" Type="Int32" Nullable="false" />
+    <Property Name="mExp1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="mExp2" Type="Int32" />
+    <Property Name="mCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="mCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="mUpdateID" Type="Int32" />
+    <Property Name="mUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="sysFunction" Relationship="JKCRMModel.FK_sysFunction_sysMenus" FromRole="sysMenus" ToRole="sysFunction" />
+    <NavigationProperty Name="sysPermissList" Relationship="JKCRMModel.FK_sysPermissList_sysMenus" FromRole="sysMenus" ToRole="sysPermissList" />
+  </EntityType>
+  <EntityType Name="sysOrganStruct">
+    <Key>
+      <PropertyRef Name="osID" />
+    </Key>
+    <Property Name="osID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="osParentID" Type="Int32" Nullable="false" />
+    <Property Name="osName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="osCode" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="osCateID" Type="Int32" Nullable="false" />
+    <Property Name="osLevel" Type="Int32" />
+    <Property Name="osShortName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="osRemark" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="osStatus" Type="Int32" />
+    <Property Name="osCreatorID" Type="Int32" />
+    <Property Name="osCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="osUpdateID" Type="Int32" />
+    <Property Name="osUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="sysKeyValue" Relationship="JKCRMModel.FK_OrganStruct_KeyValue" FromRole="sysOrganStruct" ToRole="sysKeyValue" />
+    <NavigationProperty Name="sysRole" Relationship="JKCRMModel.FK_sysRole_sysOrganStruct" FromRole="sysOrganStruct" ToRole="sysRole" />
+    <NavigationProperty Name="sysUserInfo" Relationship="JKCRMModel.FK_sysUserInfo_sysOrganStruct" FromRole="sysOrganStruct" ToRole="sysUserInfo" />
+    <NavigationProperty Name="sysUserInfo1" Relationship="JKCRMModel.FK_sysUserInfo_sysOrganStruct1" FromRole="sysOrganStruct" ToRole="sysUserInfo" />
+    <NavigationProperty Name="sysUserInfo2" Relationship="JKCRMModel.FK_sysUserInfo_sysOrganStruct2" FromRole="sysOrganStruct" ToRole="sysUserInfo" />
+  </EntityType>
+  <EntityType Name="sysPermissList">
+    <Key>
+      <PropertyRef Name="plid" />
+    </Key>
+    <Property Name="plid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="rID" Type="Int32" Nullable="false" />
+    <Property Name="mID" Type="Int32" Nullable="false" />
+    <Property Name="fID" Type="Int32" Nullable="false" />
+    <Property Name="plCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="plCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="sysFunction" Relationship="JKCRMModel.FK_sysPermissList_sysFunction" FromRole="sysPermissList" ToRole="sysFunction" />
+    <NavigationProperty Name="sysMenus" Relationship="JKCRMModel.FK_sysPermissList_sysMenus" FromRole="sysPermissList" ToRole="sysMenus" />
+    <NavigationProperty Name="sysRole" Relationship="JKCRMModel.FK_sysPermissList_sysRole" FromRole="sysPermissList" ToRole="sysRole" />
+  </EntityType>
+  <EntityType Name="sysRole">
+    <Key>
+      <PropertyRef Name="rID" />
+    </Key>
+    <Property Name="rID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="eDepID" Type="Int32" />
+    <Property Name="RoleType" Type="Int32" Nullable="false" />
+    <Property Name="rName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="rRemark" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="rSort" Type="Int32" Nullable="false" />
+    <Property Name="rStatus" Type="Int32" Nullable="false" />
+    <Property Name="rCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="rCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="rUpdateID" Type="Int32" />
+    <Property Name="rUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="sysKeyValue" Relationship="JKCRMModel.FK_sysRole_sysKeyValue" FromRole="sysRole" ToRole="sysKeyValue" />
+    <NavigationProperty Name="sysOrganStruct" Relationship="JKCRMModel.FK_sysRole_sysOrganStruct" FromRole="sysRole" ToRole="sysOrganStruct" />
+    <NavigationProperty Name="sysPermissList" Relationship="JKCRMModel.FK_sysPermissList_sysRole" FromRole="sysRole" ToRole="sysPermissList" />
+    <NavigationProperty Name="sysUserInfo_Role" Relationship="JKCRMModel.FK_sysUserInfo_Role_sysRole" FromRole="sysRole" ToRole="sysUserInfo_Role" />
+  </EntityType>
+  <EntityType Name="sysUserInfo">
+    <Key>
+      <PropertyRef Name="uID" />
+    </Key>
+    <Property Name="uID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="uLoginName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="uLoginPWD" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="uRealName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="uTelphone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="uMobile" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="uEmial" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="uQQ" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+    <Property Name="uGender" Type="Int32" Nullable="false" />
+    <Property Name="uStatus" Type="Int32" Nullable="false" />
+    <Property Name="uCompanyID" Type="Int32" Nullable="false" />
+    <Property Name="uDepID" Type="Int32" />
+    <Property Name="uWorkGroupID" Type="Int32" />
+    <Property Name="uRemark" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="uCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="uCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="uUpdateID" Type="Int32" />
+    <Property Name="uUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="sysOrganStruct" Relationship="JKCRMModel.FK_sysUserInfo_sysOrganStruct" FromRole="sysUserInfo" ToRole="sysOrganStruct" />
+    <NavigationProperty Name="sysOrganStruct1" Relationship="JKCRMModel.FK_sysUserInfo_sysOrganStruct1" FromRole="sysUserInfo" ToRole="sysOrganStruct" />
+    <NavigationProperty Name="sysOrganStruct2" Relationship="JKCRMModel.FK_sysUserInfo_sysOrganStruct2" FromRole="sysUserInfo" ToRole="sysOrganStruct" />
+    <NavigationProperty Name="sysUserInfo_Role" Relationship="JKCRMModel.FK_sysUserInfo_Role_sysUserInfo" FromRole="sysUserInfo" ToRole="sysUserInfo_Role" />
+    <NavigationProperty Name="wfRequestForm" Relationship="JKCRMModel.FK_wfRequestForm_sysUserInfo" FromRole="sysUserInfo" ToRole="wfRequestForm" />
+  </EntityType>
+  <EntityType Name="sysUserInfo_Role">
+    <Key>
+      <PropertyRef Name="urID" />
+    </Key>
+    <Property Name="urID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="uID" Type="Int32" Nullable="false" />
+    <Property Name="rID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="sysRole" Relationship="JKCRMModel.FK_sysUserInfo_Role_sysRole" FromRole="sysUserInfo_Role" ToRole="sysRole" />
+    <NavigationProperty Name="sysUserInfo" Relationship="JKCRMModel.FK_sysUserInfo_Role_sysUserInfo" FromRole="sysUserInfo_Role" ToRole="sysUserInfo" />
+  </EntityType>
+  <EntityType Name="wfProcess">
+    <Key>
+      <PropertyRef Name="wfPID" />
+    </Key>
+    <Property Name="wfPID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="wfRFID" Type="Int32" Nullable="false" />
+    <Property Name="wfProcessor" Type="Int32" Nullable="false" />
+    <Property Name="wfRFStatus" Type="Int32" Nullable="false" />
+    <Property Name="wfPDescription" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="wfnID" Type="Int32" Nullable="false" />
+    <Property Name="wfPExt1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="wfPExt2" Type="Int32" />
+    <Property Name="fCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="fCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fUpdateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="sysKeyValue" Relationship="JKCRMModel.FK_wfProcess_sysKeyValue" FromRole="wfProcess" ToRole="sysKeyValue" />
+    <NavigationProperty Name="wfRequestForm" Relationship="JKCRMModel.FK_wfProcess_wfRequestForm" FromRole="wfProcess" ToRole="wfRequestForm" />
+    <NavigationProperty Name="wfWorkNodes" Relationship="JKCRMModel.FK_wfProcess_wfWorkNodes" FromRole="wfProcess" ToRole="wfWorkNodes" />
+  </EntityType>
+  <EntityType Name="wfRequestForm">
+    <Key>
+      <PropertyRef Name="wfRFID" />
+    </Key>
+    <Property Name="wfRFID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="wfID" Type="Int32" Nullable="false" />
+    <Property Name="wfRFTitle" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="wfRFRemark" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="wfRFPriority" Type="Int32" Nullable="false" />
+    <Property Name="wfRFStatus" Type="Int32" Nullable="false" />
+    <Property Name="wfRFExt1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="wfRFExt2" Type="Int32" />
+    <Property Name="wfRFLogicSymbol" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="wfRFNum" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="fCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="fCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fUpdateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="sysKeyValue" Relationship="JKCRMModel.FK_wfRequestForm_sysKeyValue" FromRole="wfRequestForm" ToRole="sysKeyValue" />
+    <NavigationProperty Name="sysKeyValue1" Relationship="JKCRMModel.FK_wfRequestForm_sysKeyValue1" FromRole="wfRequestForm" ToRole="sysKeyValue" />
+    <NavigationProperty Name="sysUserInfo" Relationship="JKCRMModel.FK_wfRequestForm_sysUserInfo" FromRole="wfRequestForm" ToRole="sysUserInfo" />
+    <NavigationProperty Name="wfProcess" Relationship="JKCRMModel.FK_wfProcess_wfRequestForm" FromRole="wfRequestForm" ToRole="wfProcess" />
+    <NavigationProperty Name="wfWork" Relationship="JKCRMModel.FK_wfRequestForm_wfWork" FromRole="wfRequestForm" ToRole="wfWork" />
+  </EntityType>
+  <EntityType Name="wfWork">
+    <Key>
+      <PropertyRef Name="wfID" />
+    </Key>
+    <Property Name="wfID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="wfTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="wfStatus" Type="Int32" Nullable="false" />
+    <Property Name="wfRemark" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="fCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="fCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fUpdateID" Type="Int32" />
+    <Property Name="fUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="wfRequestForm" Relationship="JKCRMModel.FK_wfRequestForm_wfWork" FromRole="wfWork" ToRole="wfRequestForm" />
+    <NavigationProperty Name="wfWorkNodes" Relationship="JKCRMModel.FK_wfWorkNodes_wfWork" FromRole="wfWork" ToRole="wfWorkNodes" />
+  </EntityType>
+  <EntityType Name="wfWorkBranch">
+    <Key>
+      <PropertyRef Name="wfbID" />
+    </Key>
+    <Property Name="wfbID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="wfnID" Type="Int32" Nullable="false" />
+    <Property Name="wfnToken" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="wfNodeID" Type="Int32" Nullable="false" />
+    <Property Name="fCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="fCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fUpdateID" Type="Int32" />
+    <Property Name="fUpdateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="wfWorkNodes" Relationship="JKCRMModel.FK_wfWorkBranch_wfWorkNodes" FromRole="wfWorkBranch" ToRole="wfWorkNodes" />
+    <NavigationProperty Name="wfWorkNodes1" Relationship="JKCRMModel.FK_wfWorkBranch_wfWorkNodes1" FromRole="wfWorkBranch" ToRole="wfWorkNodes" />
+  </EntityType>
+  <EntityType Name="wfWorkNodes">
+    <Key>
+      <PropertyRef Name="wfnID" />
+    </Key>
+    <Property Name="wfnID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="wfID" Type="Int32" Nullable="false" />
+    <Property Name="wfnOrderNo" Type="Int32" Nullable="false" />
+    <Property Name="wfNodeType" Type="Int32" Nullable="false" />
+    <Property Name="wfNodeTitle" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="wfnBizMethod" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="wfnMaxNum" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="wfnRoleType" Type="Int32" Nullable="false" />
+    <Property Name="wfnExt1" Type="Int32" />
+    <Property Name="wfnExt2" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="fCreatorID" Type="Int32" Nullable="false" />
+    <Property Name="fCreateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fUpdateID" Type="Int32" />
+    <Property Name="fUpdateTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="sysKeyValue" Relationship="JKCRMModel.FK_wfWorkNodes_sysKeyValue" FromRole="wfWorkNodes" ToRole="sysKeyValue" />
+    <NavigationProperty Name="sysKeyValue1" Relationship="JKCRMModel.FK_wfWorkNodes_sysKeyValue1" FromRole="wfWorkNodes" ToRole="sysKeyValue" />
+    <NavigationProperty Name="wfProcess" Relationship="JKCRMModel.FK_wfProcess_wfWorkNodes" FromRole="wfWorkNodes" ToRole="wfProcess" />
+    <NavigationProperty Name="wfWork" Relationship="JKCRMModel.FK_wfWorkNodes_wfWork" FromRole="wfWorkNodes" ToRole="wfWork" />
+    <NavigationProperty Name="wfWorkBranch" Relationship="JKCRMModel.FK_wfWorkBranch_wfWorkNodes" FromRole="wfWorkNodes" ToRole="wfWorkBranch" />
+    <NavigationProperty Name="wfWorkBranch1" Relationship="JKCRMModel.FK_wfWorkBranch_wfWorkNodes1" FromRole="wfWorkNodes" ToRole="wfWorkBranch" />
+  </EntityType>
+  <Association Name="FK_sysFunction_sysMenus">
+    <End Role="sysMenus" Type="JKCRMModel.sysMenus" Multiplicity="1" />
+    <End Role="sysFunction" Type="JKCRMModel.sysFunction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysMenus">
+        <PropertyRef Name="mID" />
+      </Principal>
+      <Dependent Role="sysFunction">
+        <PropertyRef Name="mID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysPermissList_sysFunction">
+    <End Role="sysFunction" Type="JKCRMModel.sysFunction" Multiplicity="1" />
+    <End Role="sysPermissList" Type="JKCRMModel.sysPermissList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysFunction">
+        <PropertyRef Name="fID" />
+      </Principal>
+      <Dependent Role="sysPermissList">
+        <PropertyRef Name="fID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrganStruct_KeyValue">
+    <End Role="sysKeyValue" Type="JKCRMModel.sysKeyValue" Multiplicity="1" />
+    <End Role="sysOrganStruct" Type="JKCRMModel.sysOrganStruct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysKeyValue">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="sysOrganStruct">
+        <PropertyRef Name="osCateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysRole_sysKeyValue">
+    <End Role="sysKeyValue" Type="JKCRMModel.sysKeyValue" Multiplicity="1" />
+    <End Role="sysRole" Type="JKCRMModel.sysRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysKeyValue">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="sysRole">
+        <PropertyRef Name="RoleType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfProcess_sysKeyValue">
+    <End Role="sysKeyValue" Type="JKCRMModel.sysKeyValue" Multiplicity="1" />
+    <End Role="wfProcess" Type="JKCRMModel.wfProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysKeyValue">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="wfProcess">
+        <PropertyRef Name="wfRFStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfRequestForm_sysKeyValue">
+    <End Role="sysKeyValue" Type="JKCRMModel.sysKeyValue" Multiplicity="1" />
+    <End Role="wfRequestForm" Type="JKCRMModel.wfRequestForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysKeyValue">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="wfRequestForm">
+        <PropertyRef Name="wfRFPriority" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfRequestForm_sysKeyValue1">
+    <End Role="sysKeyValue" Type="JKCRMModel.sysKeyValue" Multiplicity="1" />
+    <End Role="wfRequestForm" Type="JKCRMModel.wfRequestForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysKeyValue">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="wfRequestForm">
+        <PropertyRef Name="wfRFStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfWorkNodes_sysKeyValue">
+    <End Role="sysKeyValue" Type="JKCRMModel.sysKeyValue" Multiplicity="1" />
+    <End Role="wfWorkNodes" Type="JKCRMModel.wfWorkNodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysKeyValue">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="wfWorkNodes">
+        <PropertyRef Name="wfNodeType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfWorkNodes_sysKeyValue1">
+    <End Role="sysKeyValue" Type="JKCRMModel.sysKeyValue" Multiplicity="1" />
+    <End Role="wfWorkNodes" Type="JKCRMModel.wfWorkNodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysKeyValue">
+        <PropertyRef Name="KID" />
+      </Principal>
+      <Dependent Role="wfWorkNodes">
+        <PropertyRef Name="wfnRoleType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysPermissList_sysMenus">
+    <End Role="sysMenus" Type="JKCRMModel.sysMenus" Multiplicity="1" />
+    <End Role="sysPermissList" Type="JKCRMModel.sysPermissList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysMenus">
+        <PropertyRef Name="mID" />
+      </Principal>
+      <Dependent Role="sysPermissList">
+        <PropertyRef Name="mID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysRole_sysOrganStruct">
+    <End Role="sysOrganStruct" Type="JKCRMModel.sysOrganStruct" Multiplicity="0..1" />
+    <End Role="sysRole" Type="JKCRMModel.sysRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysOrganStruct">
+        <PropertyRef Name="osID" />
+      </Principal>
+      <Dependent Role="sysRole">
+        <PropertyRef Name="eDepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysUserInfo_sysOrganStruct">
+    <End Role="sysOrganStruct" Type="JKCRMModel.sysOrganStruct" Multiplicity="1" />
+    <End Role="sysUserInfo" Type="JKCRMModel.sysUserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysOrganStruct">
+        <PropertyRef Name="osID" />
+      </Principal>
+      <Dependent Role="sysUserInfo">
+        <PropertyRef Name="uCompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysUserInfo_sysOrganStruct1">
+    <End Role="sysOrganStruct" Type="JKCRMModel.sysOrganStruct" Multiplicity="0..1" />
+    <End Role="sysUserInfo" Type="JKCRMModel.sysUserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysOrganStruct">
+        <PropertyRef Name="osID" />
+      </Principal>
+      <Dependent Role="sysUserInfo">
+        <PropertyRef Name="uDepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysUserInfo_sysOrganStruct2">
+    <End Role="sysOrganStruct" Type="JKCRMModel.sysOrganStruct" Multiplicity="0..1" />
+    <End Role="sysUserInfo" Type="JKCRMModel.sysUserInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysOrganStruct">
+        <PropertyRef Name="osID" />
+      </Principal>
+      <Dependent Role="sysUserInfo">
+        <PropertyRef Name="uWorkGroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysPermissList_sysRole">
+    <End Role="sysRole" Type="JKCRMModel.sysRole" Multiplicity="1" />
+    <End Role="sysPermissList" Type="JKCRMModel.sysPermissList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysRole">
+        <PropertyRef Name="rID" />
+      </Principal>
+      <Dependent Role="sysPermissList">
+        <PropertyRef Name="rID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysUserInfo_Role_sysRole">
+    <End Role="sysRole" Type="JKCRMModel.sysRole" Multiplicity="1" />
+    <End Role="sysUserInfo_Role" Type="JKCRMModel.sysUserInfo_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysRole">
+        <PropertyRef Name="rID" />
+      </Principal>
+      <Dependent Role="sysUserInfo_Role">
+        <PropertyRef Name="rID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sysUserInfo_Role_sysUserInfo">
+    <End Role="sysUserInfo" Type="JKCRMModel.sysUserInfo" Multiplicity="1" />
+    <End Role="sysUserInfo_Role" Type="JKCRMModel.sysUserInfo_Role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysUserInfo">
+        <PropertyRef Name="uID" />
+      </Principal>
+      <Dependent Role="sysUserInfo_Role">
+        <PropertyRef Name="uID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfRequestForm_sysUserInfo">
+    <End Role="sysUserInfo" Type="JKCRMModel.sysUserInfo" Multiplicity="1" />
+    <End Role="wfRequestForm" Type="JKCRMModel.wfRequestForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sysUserInfo">
+        <PropertyRef Name="uID" />
+      </Principal>
+      <Dependent Role="wfRequestForm">
+        <PropertyRef Name="fCreatorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfProcess_wfRequestForm">
+    <End Role="wfRequestForm" Type="JKCRMModel.wfRequestForm" Multiplicity="1" />
+    <End Role="wfProcess" Type="JKCRMModel.wfProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wfRequestForm">
+        <PropertyRef Name="wfRFID" />
+      </Principal>
+      <Dependent Role="wfProcess">
+        <PropertyRef Name="wfRFID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfProcess_wfWorkNodes">
+    <End Role="wfWorkNodes" Type="JKCRMModel.wfWorkNodes" Multiplicity="1" />
+    <End Role="wfProcess" Type="JKCRMModel.wfProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wfWorkNodes">
+        <PropertyRef Name="wfnID" />
+      </Principal>
+      <Dependent Role="wfProcess">
+        <PropertyRef Name="wfnID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfRequestForm_wfWork">
+    <End Role="wfWork" Type="JKCRMModel.wfWork" Multiplicity="1" />
+    <End Role="wfRequestForm" Type="JKCRMModel.wfRequestForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wfWork">
+        <PropertyRef Name="wfID" />
+      </Principal>
+      <Dependent Role="wfRequestForm">
+        <PropertyRef Name="wfID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfWorkNodes_wfWork">
+    <End Role="wfWork" Type="JKCRMModel.wfWork" Multiplicity="1" />
+    <End Role="wfWorkNodes" Type="JKCRMModel.wfWorkNodes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wfWork">
+        <PropertyRef Name="wfID" />
+      </Principal>
+      <Dependent Role="wfWorkNodes">
+        <PropertyRef Name="wfID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfWorkBranch_wfWorkNodes">
+    <End Role="wfWorkNodes" Type="JKCRMModel.wfWorkNodes" Multiplicity="1" />
+    <End Role="wfWorkBranch" Type="JKCRMModel.wfWorkBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wfWorkNodes">
+        <PropertyRef Name="wfnID" />
+      </Principal>
+      <Dependent Role="wfWorkBranch">
+        <PropertyRef Name="wfnID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_wfWorkBranch_wfWorkNodes1">
+    <End Role="wfWorkNodes" Type="JKCRMModel.wfWorkNodes" Multiplicity="1" />
+    <End Role="wfWorkBranch" Type="JKCRMModel.wfWorkBranch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="wfWorkNodes">
+        <PropertyRef Name="wfnID" />
+      </Principal>
+      <Dependent Role="wfWorkBranch">
+        <PropertyRef Name="wfNodeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Usp_GetFunctionsForUser15_Result">
+    <Property Type="String" Name="fName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="fFunction" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="fPicname" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="mUrl" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="mArea" Nullable="true" />
+    <Property Type="String" Name="mController" Nullable="true" />
+    <Property Type="String" Name="mAction" Nullable="true" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,107 @@
+﻿@{
+    Layout = null;
+}
+
+@using itcast.CRM15.WebHelper
+@using itcast.CRM15.Model
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    <script type="text/javascript">
+        var tab;
+        $(function () {
+            //1.0 开始进行layout布局
+            $("#layout1").ligerLayout({ leftWidth: 250 });
+
+            //2.0 初始化左边菜单
+            $("#leftMenus").ligerAccordion({ height: 300 });
+
+            //3.0 初始化一个默认的Tab 我的工作台
+            tab = $("#tab1").ligerTab({ height: "100%" });
+        })
+
+        //负责打开一个新的tab，如果发现所有打开的tab中有tabid，则选择此tab
+        function addTab(tabid, url, title) {
+            tab.addTabItem({
+                tabid: tabid, //tab的唯一标示
+                url: url,//tab中 iframe指向的url
+                text: title //菜单tab的标题
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div id="layout1">
+            <!--顶部区域-->
+            <div position="top" class="top1">
+                <a href="#" class="title">CRM客户关系管理</a>
+                <ul>
+                    <li>
+                        <img alt="" src="/images/avatar.gif" style="height: 29px;"></li>
+                    <li>欢迎【@UserMgr.GetCurrentUserInfo().uRealName】登录</li>
+                    <li><a href="/admin/Login/Logout">退出</a></li>
+                </ul>
+            </div>
+
+
+            <!--左菜单-->
+            <div position="left">
+                <div id="leftMenus">
+                    @*  <div title="功能列表">
+                        <ul>
+                            <li><a href="/admin/keyval/index"><i class="icon-adjust"></i>数据字典管理</a></li>
+                        </ul>
+                    </div>*@
+                    @*动态生成菜单数据*@
+                    @*  @helper CreateLi( List<sysMenus> list1)
+                    {
+                        
+                    }*@
+                    @{
+                        //1.0 获取菜单数据集合
+                        var list = ViewBag.mlist as List<sysMenus>;
+
+                        if (list != null && list.Any())
+                        {
+                            //2.0 遍历list中的一级菜单
+                            foreach (var menu in list)
+                            {
+                                //表示是一级菜单
+                                if (menu.mParentID == -1)
+                                {
+                        <div title="@menu.mName">
+                            <!--生成当前一级菜单的二级菜单-->
+                            <ul>
+                                @foreach (var item in list)
+                                {
+                                    //判断当前的item是否为menu.mid这个菜单的子菜单
+                                    if (item.mParentID == menu.mID)
+                                    {
+                                    <li><a href="javascript:void(0)" onclick="addTab(@item.mID,'@item.mUrl','@item.mName')"><i class="@item.mPicname"></i>@item.mName</a></li>
+                                    }
+                                }
+                            </ul>
+                        </div>
+                                }
+                            }
+                        }
+                    }
+                    }
+                </div>
+            </div>
+            <!--具体的业务内容-->
+            <div position="center" title="标题" id="tab1">
+                <div title="我的工作台">
+                    <iframe src="/admin/Home/MyCenter"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

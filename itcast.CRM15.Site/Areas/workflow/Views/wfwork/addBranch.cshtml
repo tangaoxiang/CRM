@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+@model itcast.CRM15.Model.ModelViews.wfWorkBranchView
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>addBranch</title>
+</head>
+<body>
+    <div style="margin-top: 15px">
+        @using (Ajax.BeginForm("addBranch", "wfwork", new AjaxOptions()
+       {
+           Url = Url.Action("addBranch", "wfwork"),
+           HttpMethod = "post",
+           OnSuccess = "helper.ajaxsuccess",
+           OnBegin = "helper.ajaxbegin"
+       }))
+        {
+            <table class="list">
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.wfnToken)</th>
+                    <td>@Html.TextBoxFor(c => c.wfnToken)
+                        @Html.ValidationMessageFor(c => c.wfnToken)
+                    </td>
+                </tr>
+
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.wfNodeID)</th>
+                    <td>@Html.DropDownListFor(c => c.wfNodeID, ViewBag.nextNodes as SelectList)
+                        @Html.ValidationMessageFor(c => c.wfNodeID)
+                    </td>
+                </tr>
+                   <tr>
+                    <th></th>
+                    <td>
+                        <input type="submit" value="提交" />
+                        <input type="button" onclick="window.parent.helper.win.close()" value="关闭" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</body>
+</html>

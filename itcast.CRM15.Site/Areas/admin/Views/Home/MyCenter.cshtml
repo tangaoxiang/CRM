@@ -1,0 +1,252 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>我的工作台</title>
+    <style type="text/css">
+        #hisdiv {
+            display: none;
+            max-height: 400px;
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .wd {
+            width: 200px;
+            display: inline-block;
+        }
+
+        #chatdiv {
+            overflow: hidden;
+        }
+
+        .leftusertree {
+            float: left;
+            width: 200px;
+            border: 1px solid green;
+            height: 350px;
+        }
+
+        .rightcontent {
+            float: right;
+            width: 350px;
+            border: 1px solid green;
+            height: 360px;
+        }
+
+        #msgdiv {
+            height: 300px;
+            border: dashed 1px #0094ff;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+            #msgdiv a {
+                font-weight: bold;
+                color: blue;
+                font-size: 14px;
+            }
+
+                #msgdiv a:hover {
+                    color: #ff6a00;
+                }
+
+            #msgdiv .title {
+                color: #ff6a00;
+            }
+    </style>
+    <link href="~/Content/My97DatePicker/skin/WdatePicker.css" rel="stylesheet" />
+    <script src="~/Content/My97DatePicker/WdatePicker.js"></script>
+    <script src="~/Scripts/Plugs/jquery.tmpl.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#p1").ligerPanel({
+                title: "我的审核单"
+            });
+            $("#p2").ligerPanel({
+                title: "我的申请单"
+            });
+
+            $.ligerDialog.tip({
+                title: '实时聊天', target: $("#chatdiv")
+                , width: 600
+                    , height: 450
+            });
+
+            //执行
+            getuserTree();
+
+            //轮询调用获取消息的方法
+            setInterval(getmsg, 2000);
+        })
+
+        var tree;
+        function getuserTree() {
+            tree = $("#usertree").ligerTree({
+                url: "/admin/home/getusertree" //[]
+                , checkbox: false
+                , textFieldName: "uRealName"
+                , idFieldName: "uID"
+            });
+        }
+
+
+    </script>
+    <script id="sendmsgfmg" type="text/x-jquery-tmpl">
+        <li><span class="title">我说: </span>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;${mb}
+        </li>
+    </script>
+    <script id="recmsgfmg" type="text/x-jquery-tmpl">
+        <li><span class="title">${frn} ${fmt(st)} 说: </span><a href="javascrip:void(0)" onclick="back(${fui});">点击回复</a><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;${mb}
+        </li>
+    </script>
+    <script type="text/javascript">
+        //发送消息
+        var msgbody;
+        function sendmsg() {
+            //1.0 获取选择用户的id和名称
+            var node = tree.getSelected();
+
+            //2.0 判断
+            if (!node) {
+                helper.warnTip("请选择要发送消息的联系人"); return;
+            }
+
+            var uid = node.data.uID;
+            var realname = node.data.uRealName;
+            msgbody = $("#msg").val();
+            if (!msgbody || msgbody.length == 0) {
+                helper.warnTip("聊天消息不能为空"); return;
+            }
+
+            //3.0 发出请求
+            var parms = "touserid=" + uid + "&torealname=" + realname + "&msgbody=" + msgbody;
+            $.post("/chat/ChatMgr/SetMessage", parms, function (ajaxobj) {
+                //1.0 判断
+                helper.checkStatus(ajaxobj, function () {
+                    //2.0 将发出的消息显示在消息列表中
+                    $("#sendmsgfmg").tmpl([{ mb: msgbody }]).appendTo("#msgul");
+                    //3.0情况发送框
+                    $("#msg").val("");
+
+                    //设置滚动条自动滚到最底部
+                    setScrollBar();
+                });
+
+            }, "json");
+        }
+
+        //轮询获取属于自己的消息
+        function getmsg() {
+            //1.0 发出ajax请求
+            $.post("/chat/ChatMgr/GetMessage", null, function (ajaxobj) {
+                //1.0 判断
+                helper.checkStatus(ajaxobj, function () {
+                    //2.0 将发出的消息显示在消息列表中
+                    $("#recmsgfmg").tmpl(ajaxobj.datas).appendTo("#msgul");
+                    //设置滚动条自动滚到最底部
+                    setScrollBar();
+                });
+
+            }, "json");
+        }
+
+        //json日期数据的格式函数
+        function fmt(cellval) {
+            var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+            return date.getFullYear() + "-" + month + "-" + currentDate;
+        }
+
+        //回复函数
+        function back(uid) {
+            //1.0 根据uid从用户树选择一个节点
+            tree.selectNode(uid);
+        }
+
+        function setScrollBar() {
+            var msgdivobj = document.getElementById("msgdiv");
+            //1.0 获取msgdiv 的滚动高度
+            var scollHeight = msgdivobj.scrollHeight;
+
+            //2.0 将滚动高度设置给此div的滚动条
+            msgdivobj.scrollTop = scollHeight;
+        }
+
+        //打开历史查询面板
+        function openHistory() {
+            $.ligerDialog.open({
+                title: "查询历史消息", height: 500, width: 500
+                , target: $("#hisdiv")
+            });
+        }
+
+        function getHistoryMsg() {
+            var pms = "btime=" + $("#txtbtime").val() + "&etime=" + $("#txtetime").val();
+
+            $.post("/chat/ChatMgr/GetHistoryMessage", pms, function (ajaxobj) {
+                helper.checkStatus(ajaxobj, function () {
+                    //ajaxobj.datas
+                    $("#hismgul").html($("#recmsgfmg").tmpl(ajaxobj.datas));
+                });
+            }, "json");
+        }
+
+        function a() {
+            alert("ok");
+            return Calendar('txtbtime')
+        }
+
+    </script>
+</head>
+<body>
+    <div style="margin-top: 15px">
+        <div id="p1" style="float: left">
+            这里是内容111。。。。
+        </div>
+        <div id="p2" style="float: left; margin-left: 10px;">
+            这里是内容222。。。。
+        </div>
+    </div>
+
+    <div id="chatdiv">
+        <div class="leftusertree">
+            <ul id="usertree"></ul>
+        </div>
+        <div class="rightcontent">
+            <div id="msgdiv">
+                <ul id="msgul">
+                </ul>
+            </div>
+            <div>
+                <textarea id="msg"></textarea>
+                <input type="button" value="发送" onclick="sendmsg()" />
+                <input type="button" value="查看历史记录" onclick="openHistory()" />
+            </div>
+        </div>
+    </div>
+
+    <div id="hisdiv">
+        <div>
+            开始~结束日期: 
+            <input type="text" id="txtbtime" style="width: 90px" onfocus="return WdatePicker()"  />
+            ~ 
+            <input type="text" id="txtetime" style="width: 90px" onfocus="return WdatePicker()" />
+            <input type="button" value="查询" onclick="getHistoryMsg()" />
+        </div>
+        <div id="hismsg">
+            <ul id="hismgul">
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

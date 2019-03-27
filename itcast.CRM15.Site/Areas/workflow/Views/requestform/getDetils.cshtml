@@ -1,0 +1,74 @@
+﻿@{
+    Layout = null;
+}
+@using itcast.CRM15.Model
+@using itcast.CRM15.WebHelper
+
+@model List<itcast.CRM15.Model.wfProcess>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>getDetils</title>
+    <style type="text/css">
+        .processdiv {
+            border: 1px solid green;
+            padding: 5px;
+            width: 450px;
+        }
+
+        .c40 {
+            color: black;
+        }
+
+        .c41 {
+            color: #ff6a00;
+        }
+
+        .c42 {
+            color: red;
+        }
+
+        .c43 {
+            color: green;
+        }
+
+        .processdiv li {
+            display: inline-block;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body style="background-color:white;">
+    <div style="width: 500px; margin: 10px auto;">
+        @if (Model.Any())
+        {
+            var count = Model.Count;
+            var index = 1;
+            var clsname = "c";
+
+            foreach (wfProcess process in Model)
+            {
+            <div class="processdiv">
+                <ul>
+                    <li><b>处理流程节点:</b>@process.wfWorkNodes.wfNodeTitle</li>
+                    <li><b>处理状态:</b><span class="@clsname@process.wfRFStatus">@process.sysKeyValue.KName</span></li>
+                    <li><b>处理人:</b>@{ var user = UserMgr.GetUserByID(process.wfPExt1);@user.uRealName}</li>
+                    <br />
+                    <li><b>处理理由:</b>@process.wfPDescription</li>
+                </ul>
+            </div> 
+                                      if (index < count)
+                                      {
+            <div style="width: 40px; margin: 0 auto;">
+                <img src="/Content/admin/ligerUI/skins/icons/down.gif" />
+            </div>
+                                      }
+                                      index++;
+            }
+        }
+    </div>
+</body>
+</html>

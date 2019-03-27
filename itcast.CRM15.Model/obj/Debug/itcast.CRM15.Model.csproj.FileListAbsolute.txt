@@ -1,0 +1,9 @@
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\bin\Debug\itcast.CRM15.Model.dll.config
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\bin\Debug\itcast.CRM15.Model.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\bin\Debug\itcast.CRM15.Model.pdb
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\bin\Debug\EntityFramework.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\bin\Debug\EntityFramework.xml
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\obj\Debug\itcast.CRM15.Model.csprojResolveAssemblyReference.cache
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\obj\Debug\itcast.CRM15.Model.dll
+F:\上课视频\15期班\2014-10-5 MVC大项目第11天 在线聊天分表实现历史记录\Crm源码\itcast.CRM15.Model\obj\Debug\itcast.CRM15.Model.pdb

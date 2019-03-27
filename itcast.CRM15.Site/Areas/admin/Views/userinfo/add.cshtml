@@ -1,0 +1,143 @@
+﻿@model itcast.CRM15.Model.ModelViews.UserInfoAdd
+@*//为什么要单独定义一个UserInfoAdd,是因为在新增用户的时候要单独检查用户名是否存在，如果存在则不能
+使用，否则可以使用，而编辑不需要，如果新增编辑共用一个实体的话，则会出现冲突*@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>add</title>
+    
+</head>
+<body>
+    <div style="margin-top: 15px">
+        @using (Ajax.BeginForm("add", "userinfo", new AjaxOptions()
+        {
+            HttpMethod = "post"
+            ,
+            Url = Url.Action("add", "userinfo"),
+            OnSuccess = "helper.ajaxsuccess",
+            OnBegin = "helper.ajaxbegin"
+        }))
+        {
+            <table class="list">
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uLoginName)</th>
+                    <td>@Html.TextBoxFor(c => c.uLoginName)
+                        @Html.ValidationMessageFor(c => c.uLoginName)
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uRealName)</th>
+                    <td>@Html.TextBoxFor(c => c.uRealName)
+                        @Html.ValidationMessageFor(c => c.uRealName)
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uGender)</th>
+                    <td>女 @Html.RadioButtonFor(c => c.uGender, "0")
+                        男 @Html.RadioButtonFor(c => c.uGender, "1")
+                        保密 @Html.RadioButtonFor(c => c.uGender, "2")
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uMobile)</th>
+                    <td>
+                        @Html.TextBoxFor(c => c.uMobile)
+                        @Html.ValidationMessageFor(c => c.uMobile)
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uEmial)</th>
+                    <td>
+                        @Html.TextBoxFor(c => c.uEmial)
+                        @Html.ValidationMessageFor(c => c.uEmial)
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uStatus)</th>
+                    <td>
+                        @Html.DropDownListFor(c => c.uStatus, ViewBag.status as SelectList)
+                        @Html.ValidationMessageFor(c => c.uStatus)
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uCompanyID)</th>
+                    <td>
+                        @Html.DropDownListFor(c => c.uCompanyID, ViewBag.company as SelectList, new { onchange = "loadDep(this)" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uDepID)</th>
+                    <td>
+                        @*利用ajax实现联动*@
+                        <select id="uDepID" name="uDepID" onchange="loadWk(this)"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.uWorkGroupID)</th>
+                    <td>
+                        @*利用ajax实现联动*@
+                        <select id="uWorkGroupID" name="uWorkGroupID"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <input type="submit" value="提交" class="btn btn-info" />
+                        <input type="button" class="btn btn-info" value="关闭" onclick="window.parent.helper.win.close()" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <div id="loading">正在加载中....</div>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript">
+        //负责根据选择的公司id获取此公司下的所有部门
+        function loadDep(t) {
+            var companyid = t.value;
+            $.post("/admin/userinfo/getDep/" + companyid, null, function (ajaxobj) {
+                helper.checkStatus(ajaxobj, function () {
+                    //将数据填充到部门下拉框中
+                    var sel = document.getElementById("uDepID");
+                    sel.options.length = 0;
+                    var items = ajaxobj.datas;
+                    for (var i = 0; i < items.length; i++) {
+                        var opt = new Option(items[i].osName, items[i].osID);
+
+                        sel.options.add(opt);
+                    }
+
+                });
+            }, "json")
+        }
+        //根据选择的部门获取此部门下的所有工作组
+        function loadWk(t) {
+            var companyid = t.value;
+            $.post("/admin/userinfo/getDep/" + companyid, null, function (ajaxobj) {
+                helper.checkStatus(ajaxobj, function () {
+                    //将数据填充到部门下拉框中
+                    var sel = document.getElementById("uWorkGroupID");
+                    sel.options.length = 0;
+                    var items = ajaxobj.datas;
+                    for (var i = 0; i < items.length; i++) {
+                        var opt = new Option(items[i].osName, items[i].osID);
+
+                        sel.options.add(opt);
+                    }
+
+                });
+            }, "json");
+        }
+
+    </script>
+</body>
+</html>

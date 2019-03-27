@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JKCRMModelStoreContainer" CdmEntityContainer="JKCRMEntities">
+    <EntitySetMapping Name="sysFunction">
+      <EntityTypeMapping TypeName="JKCRMModel.sysFunction">
+        <MappingFragment StoreEntitySet="sysFunction">
+          <ScalarProperty Name="fID" ColumnName="fID" />
+          <ScalarProperty Name="mID" ColumnName="mID" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fFunction" ColumnName="fFunction" />
+          <ScalarProperty Name="fPicname" ColumnName="fPicname" />
+          <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+          <ScalarProperty Name="fCreatorID" ColumnName="fCreatorID" />
+          <ScalarProperty Name="fCreateTime" ColumnName="fCreateTime" />
+          <ScalarProperty Name="fUpdateID" ColumnName="fUpdateID" />
+          <ScalarProperty Name="fUpdateTime" ColumnName="fUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysKeyValue">
+      <EntityTypeMapping TypeName="JKCRMModel.sysKeyValue">
+        <MappingFragment StoreEntitySet="sysKeyValue">
+          <ScalarProperty Name="KID" ColumnName="KID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="KType" ColumnName="KType" />
+          <ScalarProperty Name="KName" ColumnName="KName" />
+          <ScalarProperty Name="Kvalue" ColumnName="Kvalue" />
+          <ScalarProperty Name="KRemark" ColumnName="KRemark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysMenus">
+      <EntityTypeMapping TypeName="JKCRMModel.sysMenus">
+        <MappingFragment StoreEntitySet="sysMenus">
+          <ScalarProperty Name="mID" ColumnName="mID" />
+          <ScalarProperty Name="mParentID" ColumnName="mParentID" />
+          <ScalarProperty Name="mName" ColumnName="mName" />
+          <ScalarProperty Name="mUrl" ColumnName="mUrl" />
+          <ScalarProperty Name="mArea" ColumnName="mArea" />
+          <ScalarProperty Name="mController" ColumnName="mController" />
+          <ScalarProperty Name="mAction" ColumnName="mAction" />
+          <ScalarProperty Name="mSortid" ColumnName="mSortid" />
+          <ScalarProperty Name="mStatus" ColumnName="mStatus" />
+          <ScalarProperty Name="mPicname" ColumnName="mPicname" />
+          <ScalarProperty Name="mLevel" ColumnName="mLevel" />
+          <ScalarProperty Name="mExp1" ColumnName="mExp1" />
+          <ScalarProperty Name="mExp2" ColumnName="mExp2" />
+          <ScalarProperty Name="mCreatorID" ColumnName="mCreatorID" />
+          <ScalarProperty Name="mCreateTime" ColumnName="mCreateTime" />
+          <ScalarProperty Name="mUpdateID" ColumnName="mUpdateID" />
+          <ScalarProperty Name="mUpdateTime" ColumnName="mUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysOrganStruct">
+      <EntityTypeMapping TypeName="JKCRMModel.sysOrganStruct">
+        <MappingFragment StoreEntitySet="sysOrganStruct">
+          <ScalarProperty Name="osID" ColumnName="osID" />
+          <ScalarProperty Name="osParentID" ColumnName="osParentID" />
+          <ScalarProperty Name="osName" ColumnName="osName" />
+          <ScalarProperty Name="osCode" ColumnName="osCode" />
+          <ScalarProperty Name="osCateID" ColumnName="osCateID" />
+          <ScalarProperty Name="osLevel" ColumnName="osLevel" />
+          <ScalarProperty Name="osShortName" ColumnName="osShortName" />
+          <ScalarProperty Name="osRemark" ColumnName="osRemark" />
+          <ScalarProperty Name="osStatus" ColumnName="osStatus" />
+          <ScalarProperty Name="osCreatorID" ColumnName="osCreatorID" />
+          <ScalarProperty Name="osCreateTime" ColumnName="osCreateTime" />
+          <ScalarProperty Name="osUpdateID" ColumnName="osUpdateID" />
+          <ScalarProperty Name="osUpdateTime" ColumnName="osUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysPermissList">
+      <EntityTypeMapping TypeName="JKCRMModel.sysPermissList">
+        <MappingFragment StoreEntitySet="sysPermissList">
+          <ScalarProperty Name="plid" ColumnName="plid" />
+          <ScalarProperty Name="rID" ColumnName="rID" />
+          <ScalarProperty Name="mID" ColumnName="mID" />
+          <ScalarProperty Name="fID" ColumnName="fID" />
+          <ScalarProperty Name="plCreatorID" ColumnName="plCreatorID" />
+          <ScalarProperty Name="plCreateTime" ColumnName="plCreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysRole">
+      <EntityTypeMapping TypeName="JKCRMModel.sysRole">
+        <MappingFragment StoreEntitySet="sysRole">
+          <ScalarProperty Name="rID" ColumnName="rID" />
+          <ScalarProperty Name="eDepID" ColumnName="eDepID" />
+          <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+          <ScalarProperty Name="rName" ColumnName="rName" />
+          <ScalarProperty Name="rRemark" ColumnName="rRemark" />
+          <ScalarProperty Name="rSort" ColumnName="rSort" />
+          <ScalarProperty Name="rStatus" ColumnName="rStatus" />
+          <ScalarProperty Name="rCreatorID" ColumnName="rCreatorID" />
+          <ScalarProperty Name="rCreateTime" ColumnName="rCreateTime" />
+          <ScalarProperty Name="rUpdateID" ColumnName="rUpdateID" />
+          <ScalarProperty Name="rUpdateTime" ColumnName="rUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysUserInfo">
+      <EntityTypeMapping TypeName="JKCRMModel.sysUserInfo">
+        <MappingFragment StoreEntitySet="sysUserInfo">
+          <ScalarProperty Name="uID" ColumnName="uID" />
+          <ScalarProperty Name="uLoginName" ColumnName="uLoginName" />
+          <ScalarProperty Name="uLoginPWD" ColumnName="uLoginPWD" />
+          <ScalarProperty Name="uRealName" ColumnName="uRealName" />
+          <ScalarProperty Name="uTelphone" ColumnName="uTelphone" />
+          <ScalarProperty Name="uMobile" ColumnName="uMobile" />
+          <ScalarProperty Name="uEmial" ColumnName="uEmial" />
+          <ScalarProperty Name="uQQ" ColumnName="uQQ" />
+          <ScalarProperty Name="uGender" ColumnName="uGender" />
+          <ScalarProperty Name="uStatus" ColumnName="uStatus" />
+          <ScalarProperty Name="uCompanyID" ColumnName="uCompanyID" />
+          <ScalarProperty Name="uDepID" ColumnName="uDepID" />
+          <ScalarProperty Name="uWorkGroupID" ColumnName="uWorkGroupID" />
+          <ScalarProperty Name="uRemark" ColumnName="uRemark" />
+          <ScalarProperty Name="uCreatorID" ColumnName="uCreatorID" />
+          <ScalarProperty Name="uCreateTime" ColumnName="uCreateTime" />
+          <ScalarProperty Name="uUpdateID" ColumnName="uUpdateID" />
+          <ScalarProperty Name="uUpdateTime" ColumnName="uUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysUserInfo_Role">
+      <EntityTypeMapping TypeName="JKCRMModel.sysUserInfo_Role">
+        <MappingFragment StoreEntitySet="sysUserInfo_Role">
+          <ScalarProperty Name="urID" ColumnName="urID" />
+          <ScalarProperty Name="uID" ColumnName="uID" />
+          <ScalarProperty Name="rID" ColumnName="rID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wfProcess">
+      <EntityTypeMapping TypeName="JKCRMModel.wfProcess">
+        <MappingFragment StoreEntitySet="wfProcess">
+          <ScalarProperty Name="wfPID" ColumnName="wfPID" />
+          <ScalarProperty Name="wfRFID" ColumnName="wfRFID" />
+          <ScalarProperty Name="wfProcessor" ColumnName="wfProcessor" />
+          <ScalarProperty Name="wfRFStatus" ColumnName="wfRFStatus" />
+          <ScalarProperty Name="wfPDescription" ColumnName="wfPDescription" />
+          <ScalarProperty Name="wfnID" ColumnName="wfnID" />
+          <ScalarProperty Name="wfPExt1" ColumnName="wfPExt1" />
+          <ScalarProperty Name="wfPExt2" ColumnName="wfPExt2" />
+          <ScalarProperty Name="fCreatorID" ColumnName="fCreatorID" />
+          <ScalarProperty Name="fCreateTime" ColumnName="fCreateTime" />
+          <ScalarProperty Name="fUpdateTime" ColumnName="fUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wfRequestForm">
+      <EntityTypeMapping TypeName="JKCRMModel.wfRequestForm">
+        <MappingFragment StoreEntitySet="wfRequestForm">
+          <ScalarProperty Name="wfRFID" ColumnName="wfRFID" />
+          <ScalarProperty Name="wfID" ColumnName="wfID" />
+          <ScalarProperty Name="wfRFTitle" ColumnName="wfRFTitle" />
+          <ScalarProperty Name="wfRFRemark" ColumnName="wfRFRemark" />
+          <ScalarProperty Name="wfRFPriority" ColumnName="wfRFPriority" />
+          <ScalarProperty Name="wfRFStatus" ColumnName="wfRFStatus" />
+          <ScalarProperty Name="wfRFExt1" ColumnName="wfRFExt1" />
+          <ScalarProperty Name="wfRFExt2" ColumnName="wfRFExt2" />
+          <ScalarProperty Name="wfRFLogicSymbol" ColumnName="wfRFLogicSymbol" />
+          <ScalarProperty Name="wfRFNum" ColumnName="wfRFNum" />
+          <ScalarProperty Name="fCreatorID" ColumnName="fCreatorID" />
+          <ScalarProperty Name="fCreateTime" ColumnName="fCreateTime" />
+          <ScalarProperty Name="fUpdateTime" ColumnName="fUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wfWork">
+      <EntityTypeMapping TypeName="JKCRMModel.wfWork">
+        <MappingFragment StoreEntitySet="wfWork">
+          <ScalarProperty Name="wfID" ColumnName="wfID" />
+          <ScalarProperty Name="wfTitle" ColumnName="wfTitle" />
+          <ScalarProperty Name="wfStatus" ColumnName="wfStatus" />
+          <ScalarProperty Name="wfRemark" ColumnName="wfRemark" />
+          <ScalarProperty Name="fCreatorID" ColumnName="fCreatorID" />
+          <ScalarProperty Name="fCreateTime" ColumnName="fCreateTime" />
+          <ScalarProperty Name="fUpdateID" ColumnName="fUpdateID" />
+          <ScalarProperty Name="fUpdateTime" ColumnName="fUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wfWorkBranch">
+      <EntityTypeMapping TypeName="JKCRMModel.wfWorkBranch">
+        <MappingFragment StoreEntitySet="wfWorkBranch">
+          <ScalarProperty Name="wfbID" ColumnName="wfbID" />
+          <ScalarProperty Name="wfnID" ColumnName="wfnID" />
+          <ScalarProperty Name="wfnToken" ColumnName="wfnToken" />
+          <ScalarProperty Name="wfNodeID" ColumnName="wfNodeID" />
+          <ScalarProperty Name="fCreatorID" ColumnName="fCreatorID" />
+          <ScalarProperty Name="fCreateTime" ColumnName="fCreateTime" />
+          <ScalarProperty Name="fUpdateID" ColumnName="fUpdateID" />
+          <ScalarProperty Name="fUpdateTime" ColumnName="fUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wfWorkNodes">
+      <EntityTypeMapping TypeName="JKCRMModel.wfWorkNodes">
+        <MappingFragment StoreEntitySet="wfWorkNodes">
+          <ScalarProperty Name="wfnID" ColumnName="wfnID" />
+          <ScalarProperty Name="wfID" ColumnName="wfID" />
+          <ScalarProperty Name="wfnOrderNo" ColumnName="wfnOrderNo" />
+          <ScalarProperty Name="wfNodeType" ColumnName="wfNodeType" />
+          <ScalarProperty Name="wfNodeTitle" ColumnName="wfNodeTitle" />
+          <ScalarProperty Name="wfnBizMethod" ColumnName="wfnBizMethod" />
+          <ScalarProperty Name="wfnMaxNum" ColumnName="wfnMaxNum" />
+          <ScalarProperty Name="wfnRoleType" ColumnName="wfnRoleType" />
+          <ScalarProperty Name="wfnExt1" ColumnName="wfnExt1" />
+          <ScalarProperty Name="wfnExt2" ColumnName="wfnExt2" />
+          <ScalarProperty Name="fCreatorID" ColumnName="fCreatorID" />
+          <ScalarProperty Name="fCreateTime" ColumnName="fCreateTime" />
+          <ScalarProperty Name="fUpdateID" ColumnName="fUpdateID" />
+          <ScalarProperty Name="fUpdateTime" ColumnName="fUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Usp_GetFunctionsForUser15" FunctionName="JKCRMModel.Store.Usp_GetFunctionsForUser15">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JKCRMModel.Usp_GetFunctionsForUser15_Result">
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fFunction" ColumnName="fFunction" />
+          <ScalarProperty Name="fPicname" ColumnName="fPicname" />
+          <ScalarProperty Name="mUrl" ColumnName="mUrl" />
+          <ScalarProperty Name="mArea" ColumnName="mArea" />
+          <ScalarProperty Name="mController" ColumnName="mController" />
+          <ScalarProperty Name="mAction" ColumnName="mAction" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

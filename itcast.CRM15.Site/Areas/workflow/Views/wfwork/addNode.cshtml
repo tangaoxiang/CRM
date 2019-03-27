@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+@model itcast.CRM15.Model.ModelViews.wfWorkNodesView
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>addNode</title>
+</head>
+<body>
+    <div style="margin-top: 15px">
+        @using (Ajax.BeginForm("addNode", "wfwork", new AjaxOptions()
+        {
+            Url = Url.Action("addNode", "wfwork")
+            ,
+            HttpMethod = "post",
+            OnBegin = "helper.ajaxbegin",
+            OnSuccess = "helper.ajaxsuccess"
+        }))
+        {
+            <table class="list">
+                <tr>
+                    <th>@Html.DisplayNameFor(c => c.wfNodeTitle)</th>
+                    <td>@Html.TextBoxFor(c => c.wfNodeTitle)
+                        @Html.ValidationMessageFor(c => c.wfNodeTitle)
+                    </td>
+                </tr>
+                  <tr>
+                    <th>@Html.DisplayNameFor(c => c.wfNodeType)</th>
+                    <td>@Html.DropDownListFor(c => c.wfNodeType,ViewBag.nodetypes as SelectList)                        
+                    </td>
+                </tr>
+                  <tr>
+                    <th>@Html.DisplayNameFor(c => c.wfnRoleType)</th>
+                    <td>@Html.DropDownListFor(c => c.wfnRoleType,ViewBag.roletypes as SelectList)
+                        @Html.ValidationMessageFor(c => c.wfnRoleType)
+                    </td>
+                </tr>
+                  <tr>
+                    <th>@Html.DisplayNameFor(c => c.wfnBizMethod)</th>
+                    <td>@Html.TextBoxFor(c => c.wfnBizMethod)
+                        @Html.ValidationMessageFor(c => c.wfnBizMethod)
+                    </td>
+                </tr>
+                  <tr>
+                    <th>@Html.DisplayNameFor(c => c.wfnMaxNum)</th>
+                    <td>@Html.TextBoxFor(c => c.wfnMaxNum)
+                        @Html.ValidationMessageFor(c => c.wfnMaxNum)
+                    </td>
+                </tr>
+
+                  <tr>
+                    <th></th>
+                    <td><input class="btn btn-success" type="submit" value="提交" />
+                        <input type="button" class="btn btn-success" value="关闭" onclick="window.parent.helper.win.close()" />
+                       
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>
